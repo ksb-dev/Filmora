@@ -1,0 +1,13 @@
+.cast {
+  margin-top: 1rem;
+  display: flex;
+  padding-bottom: 1rem;
+  overflow-x: scroll;
+  padding: 0rem 3rem 1rem 3rem;
+}
+
+@media screen and (max-width: 640px) {
+  .cast {
+    padding: 0 2rem 1rem 2rem;
+  }
+}

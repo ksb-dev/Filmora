@@ -1,0 +1,43 @@
+.review__loading,
+.review__err {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 2rem 2rem 9rem;
+}
+
+.reviews__container {
+  margin: 5rem 0 0rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 4rem 2rem 326px;
+  overflow-x: scroll;
+  margin-top: -0.45rem;
+  //box-shadow: 0px -12px 10px -15px #111;
+
+  &--title {
+    margin-bottom: 1rem;
+    span {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+  .e {
+    margin: 2rem 0 4rem 0;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .reviews__container {
+    padding: 2rem 3rem 6rem 48px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .reviews__container {
+    padding: 2rem 2rem 6rem 32px;
+  }
+}

@@ -1,0 +1,21 @@
+.search {
+  &__form {
+    input {
+      border: none;
+      outline: none;
+      background: var(--blue);
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+    ::placeholder {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+      color: #fff;
+    }
+
+    input:focus::placeholder {
+      color: transparent;
+    }
+  }
+}

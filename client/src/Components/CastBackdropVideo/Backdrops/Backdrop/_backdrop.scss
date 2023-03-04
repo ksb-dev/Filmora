@@ -1,0 +1,22 @@
+.backdrop {
+  width: 350px;
+  height: 250px;
+  border-radius: var(--border-radius);
+  margin-right: 1rem;
+  cursor: pointer;
+
+  img {
+    width: 350px;
+    height: 200px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 1px #000;
+  }
+}
+
+.backdrop:hover {
+  img {
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: var(--transition);
+  }
+}

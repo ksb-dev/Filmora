@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+// Components
+@import '../Components/Header/header';
+@import '../Components/Search/search';
+@import '../Components/Header/Logout/logout';
+@import '../Components/Header/SmallHeader/smallHeader';
+
+@import '../Components/Menu/_menu.scss';
+@import '../Components/Menu/Categories/categories';
+@import '../Components/Menu/Genre/genre';
+
+@import '../Components/Movies/_movies';
+@import '../Components/Movies/MovieCard/movieCard';
+@import '../Components/Movies/Pagination/pagination';
+@import '../Components/Movies/Sort/sort';
+
+@import '../Components/MovieDetail/movieDetail';
+@import '../Components/MovieDetail/YoutubePlayer/youtubePlayer';
+@import '../Components/CastBackdropVideo/castBackdropVideo';
+@import '../Components/CastBackdropVideo/Cast/cast';
+@import '../Components/CastBackdropVideo/Cast/Actor/actor';
+@import '../Components/CastBackdropVideo/Backdrops/backdrops';
+@import '../Components/CastBackdropVideo/Backdrops/Backdrop/backdrop';
+@import '../Components/CastBackdropVideo/Videos/videos';
+@import '../Components/CastBackdropVideo/Videos/Video/video';
+@import '../Components/Reviews/reviews';
+@import '../Components/Reviews/Review/review';
+
+@import '../Components/ImageViewer/imageViewer';
+
+// Sub-Components
+@import '../Sub-Components/Error/error';
+@import '../Sub-Components/Loading/loading';
+@import '../Sub-Components//ProgressBar/progressBar';
+@import '../Sub-Components/VideoPlayer/videoPlayer';
+
+// Pages
+@import '../Pages/Home/home';
+@import '../Pages/Upcoming/upcoming';
+@import '../Pages/TopRated/topRated';
+@import '../Pages/Watchlist/watchlist';
+@import '../Pages/Login/login';
+@import '../pages/Signup/signup';
+@import '../Pages//MovieInfo/movieInfo';
+@import '../Pages/ActorDetail/actorDetail';
+@import '../Pages/SearchPage/searchPage';
+
+:root {
+  --blue: #1976d2;
+  --green: #1db954;
+  --gold: gold;
+  --blue: #1da1f2;
+  // --blue: #3178c6;
+  // --blue: #5398d2;
+
+  --white-1: rgb(255, 255, 255);
+  --white-2: rgb(220, 220, 220);
+  --black: #000;
+  --dark-1: #222831;
+  // --dark-1: #111111;
+  --dark-2: #393e46;
+  //--dark-2: #222831;
+  --dark-3: #28282b;
+  --dark-4: #1a1a1d;
+
+  --white1-alpha: rgba(255, 255, 255, 0.9);
+  // --white1-alpha: rgba(220, 220, 220, 0.9);
+  --white2-alpha: rgba(220, 220, 220, 0.9);
+  --white3-alpha: rgba(255, 255, 255, 0.5);
+  --white4-alpha: rgba(255, 255, 255, 0.3);
+  --white5-alpha: rgba(255, 255, 255, 0.7);
+
+  --dark1-alpha: rgba(34, 40, 49, 0.9);
+  //--dark1-alpha: rgba(57, 62, 70, 0.9);
+  //--dark1-alpha: rgba(17, 17, 17, 0.9);
+  --dark2-alpha: rgba(34, 40, 49, 0.9);
+  // --dark2-alpha: rgba(17, 17, 17, 0.7);
+
+  --dark3-alpha: rgba(57, 62, 70, 0.6);
+  --dark4-alpha: rgba(34, 40, 49, 0.3);
+  --dark5-alpha: rgba(57, 62, 70, 0.9);
+
+  --neon-text-dark-color: darkorange;
+  --neon-border-dark-color: red;
+
+  --border-radius: 10px;
+  /* --border-radius-1: 10px; */
+
+  --transition: all 0.3s ease;
+
+  --width: 400px;
+  --height: 300px;
+
+  --greenAlpha: rgb(29, 185, 84, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.lightBg1 {
+  background: var(--white-1);
+}
+
+.lightBg2 {
+  background: var(--white-2);
+}
+
+.lightAlpha1 {
+  background: var(--white1-alpha);
+}
+
+.lightAlpha2 {
+  background: var(--white2-alpha);
+}
+
+.lightAlpha3 {
+  background: var(--white3-alpha);
+}
+
+.lightAlpha4 {
+  background: var(--white4-alpha);
+}
+
+.lightAlpha5 {
+  background: var(--white5-alpha);
+}
+
+.darkBg1 {
+  background: var(--dark-1);
+}
+
+.darkBg2 {
+  background: var(--dark-2);
+}
+
+.darkAlpha1 {
+  background: var(--dark1-alpha);
+}
+
+.darkAlpha2 {
+  background: var(--dark2-alpha);
+}
+
+.darkAlpha3 {
+  background: var(--dark3-alpha);
+}
+
+.darkAlpha4 {
+  background: var(--dark4-alpha);
+}
+
+.darkAlpha5 {
+  background: var(--dark5-alpha);
+}
+
+.lightColor1 {
+  color: var(--white-1);
+}
+
+.lightColor2 {
+  color: var(--white-2);
+}
+
+.darkColor1 {
+  color: var(--dark-1);
+}
+
+.darkColor2 {
+  color: var(--dark-2);
+}
+
+.lightGradient {
+  background: linear-gradient(
+    to right top,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 0.5)
+  );
+}
+
+.darkGradient {
+  background: linear-gradient(
+    to right top,
+    rgba(34, 40, 49, 1) 40%,
+    rgba(34, 40, 49, 0.5)
+  );
+}
+
+.lightGradient1 {
+  background: linear-gradient(
+    to right top,
+    rgba(220, 220, 220, 1) 20%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.darkGradient1 {
+  background: linear-gradient(
+    to right top,
+    rgba(57, 62, 70, 1) 20%,
+    rgba(34, 40, 49, 0)
+  );
+}
+
+.lightBoxShadow {
+  box-shadow: 0px 1px 5px var(--white-1);
+}
+
+.darkBoxShadow {
+  box-shadow: 0px 1px 5px var(--dark-2);
+}
+
+.lightBorderBottom {
+  border-bottom: 2px solid var(--white-1) !important;
+}
+
+.darkBorderBottom {
+  border-bottom: 2px solid var(--dark-1) !important;
+}
+
+.greenBg {
+  background-color: var(--green);
+  color: #fff !important;
+}
+
+.orangeBg {
+  background-color: orange;
+  color: #fff !important;
+}
+
+.redBg {
+  background-color: red;
+  color: #fff !important;
+}
+
+.greenColor {
+  color: var(--green);
+}
+
+.orangeColor {
+  color: orange;
+}
+
+.redColor {
+  color: red;
+}
+
+.lightActive {
+  background: var(--white-2);
+  border-left: none !important;
+}
+
+.darkActive {
+  background: var(--dark-2);
+  border-left: none !important;
+}
+
+.load,
+.err {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 0rem;
+  height: 350x;
+  padding-top: 2rem;
+  margin-left: -1rem;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(180, 180, 180);
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  //border-radius: 20px;
+}

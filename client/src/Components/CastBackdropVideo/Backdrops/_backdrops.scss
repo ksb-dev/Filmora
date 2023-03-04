@@ -1,0 +1,13 @@
+.backdrop__container {
+  margin-top: 1rem;
+  padding: 0 3rem 1rem 3rem;
+  display: flex;
+  padding-bottom: 1rem;
+  overflow-x: scroll;
+}
+
+@media screen and (max-width: 640px) {
+  .backdrop__container {
+    padding: 0 2rem 1rem 2rem;
+  }
+}
