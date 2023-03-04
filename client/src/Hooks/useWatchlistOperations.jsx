@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import axios from 'axios'
+import { useState } from "react";
+import axios from "axios";
 
 // APIs
-import { APIs } from '../APIs/APIs'
+import { APIs } from "../APIs/APIs";
 
 // Redux
-import { useDispatch } from 'react-redux'
-import { getMovies } from '../redux/services/movies/getMovies'
-import { setWatchlist } from '../Redux/Services/movies/setWatchlist'
+import { useDispatch } from "react-redux";
+import { getMovies } from "../redux/services/movies/getMovies";
+import { setWatchlist } from "../Redux/Services/movies/setWatchlist";
 
 export const useWatchlistOperations = () => {
-  const [error, setError] = useState(null)
-  const [isPending, setIsPending] = useState(false)
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   // Add movie
   const addMovie = async (
@@ -26,10 +26,10 @@ export const useWatchlistOperations = () => {
     genre_ids,
     overview
   ) => {
-    const token = sessionStorage.getItem('token')
+    const token = sessionStorage.getItem("token");
 
-    setError(null)
-    setIsPending(true)
+    setError(null);
+    setIsPending(true);
 
     try {
       const response = await axios.post(
@@ -37,41 +37,41 @@ export const useWatchlistOperations = () => {
         {
           movie_data: {
             id,
-            type: 'movie',
+            type: "movie",
             title,
             poster_path,
             backdrop_path,
             vote_average,
             release_date,
             genre_ids,
-            overview
-          }
+            overview,
+          },
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
-      )
+      );
 
       if (response) {
-        setError(null)
-        setIsPending(false)
+        setError(null);
+        setIsPending(false);
 
-        dispatch(setWatchlist())
+        dispatch(setWatchlist());
       }
     } catch (error) {
-      setIsPending(false)
-      setError('Failed to add to watchlist.')
+      setIsPending(false);
+      setError("Failed to add to watchlist.");
     }
-  }
+  };
 
   // Delete movie
-  const deleteMovie = async id => {
-    const token = sessionStorage.getItem('token')
+  const deleteMovie = async (id) => {
+    const token = sessionStorage.getItem("token");
 
-    setError(null)
-    setIsPending(true)
+    setError(null);
+    setIsPending(true);
 
     try {
       const response = await axios.delete(
@@ -79,27 +79,27 @@ export const useWatchlistOperations = () => {
 
         {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
-      )
+      );
 
       if (response) {
-        setError(null)
-        setIsPending(false)
+        setError(null);
+        setIsPending(false);
 
-        dispatch(setWatchlist())
+        dispatch(setWatchlist());
 
-        if (window.location.pathname === '/watchlist') {
-          console.log(true)
-          dispatch(getMovies('watchlist'))
+        if (window.location.pathname === "/watchlist") {
+          console.log(true);
+          dispatch(getMovies("watchlist"));
         }
       }
     } catch (error) {
-      setIsPending(false)
-      setError('Failed to delete to wishlist.')
+      setIsPending(false);
+      setError("Failed to delete to wishlist.");
     }
-  }
+  };
 
   // Add movie
   const addShow = async (
@@ -112,10 +112,10 @@ export const useWatchlistOperations = () => {
     genre_ids,
     overview
   ) => {
-    const token = sessionStorage.getItem('token')
+    const token = sessionStorage.getItem("token");
 
-    setError(null)
-    setIsPending(true)
+    setError(null);
+    setIsPending(true);
 
     try {
       const response = await axios.post(
@@ -123,42 +123,42 @@ export const useWatchlistOperations = () => {
         {
           show_data: {
             id,
-            type: 'tv',
+            type: "tv",
             name,
             poster_path,
             backdrop_path,
             first_air_date,
             vote_average,
             genre_ids,
-            overview
-          }
+            overview,
+          },
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
-      )
+      );
 
       if (response) {
-        setError(null)
-        setIsPending(false)
+        setError(null);
+        setIsPending(false);
 
-        dispatch(setSavedShows())
+        dispatch(setSavedShows());
       }
     } catch (error) {
-      console.log(error)
-      setIsPending(false)
-      setError('Failed to add to watchlist.')
+      console.log(error);
+      setIsPending(false);
+      setError("Failed to add to watchlist.");
     }
-  }
+  };
 
   // Delete movie
-  const deleteShow = async id => {
-    const token = sessionStorage.getItem('token')
+  const deleteShow = async (id) => {
+    const token = sessionStorage.getItem("token");
 
-    setError(null)
-    setIsPending(true)
+    setError(null);
+    setIsPending(true);
 
     try {
       const response = await axios.delete(
@@ -166,27 +166,27 @@ export const useWatchlistOperations = () => {
 
         {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
-      )
+      );
 
       if (response) {
-        setError(null)
-        setIsPending(false)
+        setError(null);
+        setIsPending(false);
 
-        dispatch(setSavedShows())
+        dispatch(setSavedShows());
 
-        if (window.location.pathname === '/watchlist') {
-          console.log(true)
-          dispatch(getTvShows('watchlist'))
+        if (window.location.pathname === "/watchlist") {
+          console.log(true);
+          dispatch(getTvShows("watchlist"));
         }
       }
     } catch (error) {
-      setIsPending(false)
-      setError('Failed to delete to wishlist.')
+      setIsPending(false);
+      setError("Failed to delete to wishlist.");
     }
-  }
+  };
 
-  return { addMovie, deleteMovie, addShow, deleteShow, isPending, error }
-}
+  return { addMovie, deleteMovie, addShow, deleteShow, isPending, error };
+};

@@ -35,8 +35,6 @@ const Login = () => {
 
   const [show, setShow] = useState(false);
 
-  console.log(show);
-
   // Detect outside click of Side Menu
   useEffect(() => {
     const handleOutsideClick = (e) => {
