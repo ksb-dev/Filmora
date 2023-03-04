@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 // Hooks
-import { useShowHide } from '../../Hooks/useShowHide'
-import { useAuthentication } from '../../Hooks/useAuthentication'
+import { useShowHide } from "../../Hooks/useShowHide";
+import { useAuthentication } from "../../Hooks/useAuthentication";
 
 // React Router
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 // React Icons
-import { BsEye, BsEyeSlash } from 'react-icons/bs'
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 // import { FcGoogle } from 'react-icons/fc'
 // import { IoCloseOutline } from 'react-icons/io5'
 
 // Context
-import { useMovieContext } from '../../Context/Context'
+import { useMovieContext } from "../../Context/Context";
 
 // // Style
 // import './Login.css'
@@ -28,50 +28,52 @@ const Login = () => {
     email,
     setEmail,
     password,
-    setPassword
-  } = useMovieContext()
-  const { showForm, hideForm } = useShowHide()
-  const { login, isPending, error } = useAuthentication()
+    setPassword,
+  } = useMovieContext();
+  const { showForm, hideForm } = useShowHide();
+  const { login, isPending, error } = useAuthentication();
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+
+  console.log(show);
 
   // Detect outside click of Side Menu
   useEffect(() => {
-    const handleOutsideClick = e => {
+    const handleOutsideClick = (e) => {
       if (
         loginRef.current.contains(e.target) &&
         !loginFormRef.current.contains(e.target)
       ) {
-        hideForm(loginFormRef, loginRef)
-        setEmail('')
-        setPassword('')
+        hideForm(loginFormRef, loginRef);
+        setEmail("");
+        setPassword("");
       }
-    }
+    };
 
-    document.addEventListener('click', handleOutsideClick)
+    document.addEventListener("click", handleOutsideClick);
 
-    return () => document.removeEventListener('click', handleOutsideClick)
-  }, [loginRef, loginFormRef, hideForm, setEmail, setPassword])
+    return () => document.removeEventListener("click", handleOutsideClick);
+  }, [loginRef, loginFormRef, hideForm, setEmail, setPassword]);
 
   const showSignupForm = () => {
-    hideForm(loginFormRef, loginRef)
-    setEmail('')
-    setPassword('')
+    hideForm(loginFormRef, loginRef);
+    setEmail("");
+    setPassword("");
 
-    showForm(signupRef, signupFormRef)
-  }
+    showForm(signupRef, signupFormRef);
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    login(email, password, setEmail, setPassword, loginRef, loginFormRef)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(email, password, setEmail, setPassword, loginRef, loginFormRef);
+  };
 
   return (
     <div
       ref={loginRef}
       className={
-        'login ' +
-        (mode === true ? 'lightAlpha1 darkColor1' : 'darkAlpha1 lightColor1')
+        "login " +
+        (mode === true ? "lightAlpha1 darkColor1" : "darkAlpha1 lightColor1")
       }
     >
       {/* <p
@@ -86,47 +88,47 @@ const Login = () => {
       <div
         ref={loginFormRef}
         className={
-          'login__form ' +
-          (mode === true ? 'lightBg1 darkColor1' : 'darkBg1 lightColor1')
+          "login__form " +
+          (mode === true ? "lightBg1 darkColor1" : "darkBg1 lightColor1")
         }
       >
-        <h1 className='login__form--title'>Login</h1>
+        <h1 className="login__form--title">Login</h1>
 
         {/* <p>Login</p> */}
 
         <form onSubmit={handleSubmit}>
           <input
-            type='email'
-            placeholder='Email'
+            type="email"
+            placeholder="Email"
             className={
-              'email ' +
-              (mode === true ? 'lightBg2 darkColor1' : 'darkBg2 lightColor1')
+              "email " +
+              (mode === true ? "lightBg2 darkColor1" : "darkBg2 lightColor1")
             }
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            type={show ? 'text' : 'password'}
-            placeholder='Password'
+            type={show ? "text" : "password"}
+            placeholder="Password"
             className={
-              'password ' +
-              (mode === true ? 'lightBg2 darkColor1' : 'darkBg2 lightColor1')
+              "password " +
+              (mode === true ? "lightBg2 darkColor1" : "darkBg2 lightColor1")
             }
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
-          {password && show && (
-            <span className='eye' onClick={() => setShow(false)}>
+          {/* {password && show && (
+            <span className="eye-open" onClick={() => setShow(false)}>
               <BsEye />
             </span>
           )}
 
-          {password && !show && (
-            <span className='eye' onClick={() => setShow(true)}>
+          {password && show && (
+            <span className="eye-close" onClick={() => setShow(true)}>
               <BsEyeSlash />
             </span>
-          )}
+          )} */}
 
           {isPending ? (
             <button>...</button>
@@ -143,15 +145,15 @@ const Login = () => {
           <FcGoogle size={'25px'} />
         </button> */}
 
-        <div className='login__form__options'>
+        <div className="login__form__options">
           <Link
-            to='#'
-            className='login__form__options--option '
+            to="#"
+            className="login__form__options--option "
             onClick={() => showSignupForm()}
           >
             Register
           </Link>
-          <Link to='#' className='login__form__options--option'>
+          <Link to="#" className="login__form__options--option">
             Forgot your password?
           </Link>
         </div>
@@ -159,7 +161,7 @@ const Login = () => {
         {error && (
           <p
             className={
-              'login--error ' + (mode === true ? 'lightAlpha1' : 'darkAlpha1')
+              "login--error " + (mode === true ? "lightAlpha1" : "darkAlpha1")
             }
           >
             <span>{error}</span>
@@ -167,7 +169,7 @@ const Login = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

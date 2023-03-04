@@ -28,7 +28,7 @@ export const APIs = {
 
   // get_movies_url: `/url/api/v1/filmora/movies`,
   // add_movie_url: `/url/api/v1/filmora/movies`,
-  // delete_movie_url: `/url/api/v1/filmora/movies/`
+  // delete_movie_url: `/url/api/v1/filmora/movies/`,
 
   login_url: `/api/v1/filmora/auth/login`,
   register_url: `/api/v1/filmora/auth/register`,

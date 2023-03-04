@@ -81,10 +81,12 @@
         transition: var(--transition);
       }
 
-      .eye {
+      .eye-open,
+      .eye-close {
+        display: none;
         position: absolute;
-        right: 1.5rem;
-        top: 8.5rem;
+        right: 3rem;
+        top: 9.5rem;
         cursor: pointer;
       }
     }
